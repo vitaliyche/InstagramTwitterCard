@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -34,13 +35,15 @@ fun CardScreen() {
 
         Column() {
 
+            val gradientWhiteBlack = Brush.verticalGradient(
+                0f to Color.White, 0.536f to Color.White, 1f to Color.Black
+            )
             Column(
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 14.dp, start = 14.dp, end = 14.dp)
                     .clip(RoundedCornerShape(13.dp))
-                    .background(Color.Gray),
-                /*backgroundColor = BackgroundBlurredImage(image = R.drawable.image_photo)*/
+                    .background(gradientWhiteBlack),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
@@ -83,11 +86,12 @@ fun CardScreen() {
                         Row(
                             modifier = Modifier.padding(top = 6.dp)
                         ) {
+
                             Text(
                                 text = "Will Smith\n" +
                                         "I wrote a book...",
                                 style = TextStyle(fontSize = 12.sp),
-                                color = Color.Black.copy(alpha = 0.6f),
+                                color = Color.White.copy(alpha = 0.6f),
                             )
 
                             Spacer(modifier = Modifier.weight(1f))
@@ -97,6 +101,7 @@ fun CardScreen() {
                                 contentDescription = "info",
                                 tint = Color.White
                             )
+
                         }
                     }
                 }
