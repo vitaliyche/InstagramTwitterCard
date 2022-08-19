@@ -47,99 +47,115 @@ fun CardScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
 
-                Image(
-                    painter = painterResource(R.drawable.image_photo),
-                    contentDescription = "profile image",
-                    modifier = Modifier
-                        .padding(top = 100.dp, bottom = 78.dp)
-                        .size(200.dp)
-                        .fillMaxWidth()
+                ProfileImage()
+                ProfileInfo()
+            }
+
+            RejectAndLikeButtonsRow()
+        }
+    }
+}
+
+@Composable
+fun ProfileImage() {
+    Image(
+        painter = painterResource(R.drawable.image_photo),
+        contentDescription = "profile image",
+        modifier = Modifier
+            .padding(top = 100.dp, bottom = 78.dp)
+            .size(200.dp)
+            .fillMaxWidth()
+    )
+}
+
+@Composable
+fun ProfileInfo() {
+
+    Row() {
+
+        Column(
+            modifier = Modifier
+                .padding(start = 18.dp, end = 20.dp, bottom = 20.dp)
+        ) {
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+
+                Text(
+                    text = "@willsmith ·",
+                    style = TextStyle(fontSize = 20.sp),
+                    color = Color.White,
+                    fontWeight = FontWeight.SemiBold
                 )
 
-                Row() {
+                Text(
+                    text = "55,4 млн",
+                    modifier = Modifier.padding(start = 4.dp),
+                    style = TextStyle(fontSize = 16.sp),
+                    color = Color.White
+                )
 
-                    Column(
-                        modifier = Modifier
-                            .padding(start = 18.dp, end = 20.dp, bottom = 20.dp)
-                    ) {
-
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-
-                            Text(
-                                text = "@willsmith ·",
-                                style = TextStyle(fontSize = 20.sp),
-                                color = Color.White,
-                                fontWeight = FontWeight.SemiBold
-                            )
-
-                            Text(
-                                text = "55,4 млн",
-                                modifier = Modifier.padding(start = 4.dp),
-                                style = TextStyle(fontSize = 16.sp),
-                                color = Color.White
-                            )
-
-                        }
-
-                        Row(
-                            modifier = Modifier.padding(top = 6.dp)
-                        ) {
-
-                            Text(
-                                text = "Will Smith\n" +
-                                        "I wrote a book...",
-                                style = TextStyle(fontSize = 12.sp),
-                                color = Color.White.copy(alpha = 0.6f),
-                            )
-
-                            Spacer(modifier = Modifier.weight(1f))
-
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_info),
-                                contentDescription = "info",
-                                tint = Color.White
-                            )
-
-                        }
-                    }
-                }
             }
 
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 18.dp, bottom = 20.dp),
-                horizontalArrangement = Arrangement.Center
+                modifier = Modifier.padding(top = 6.dp)
             ) {
 
-                IconButton(
-                    onClick = { /*TODO*/ },
-                    modifier = Modifier.size(52.dp)
-                ) {
+                Text(
+                    text = "Will Smith\n" +
+                            "I wrote a book...",
+                    style = TextStyle(fontSize = 12.sp),
+                    color = Color.White.copy(alpha = 0.6f),
+                )
 
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_reject),
-                        contentDescription = "reject"
-                    )
+                Spacer(modifier = Modifier.weight(1f))
 
-                }
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_info),
+                    contentDescription = "info",
+                    tint = Color.White
+                )
 
-                IconButton(
-                    onClick = { /*TODO*/ },
-                    modifier = Modifier
-                        .padding(start = 48.dp)
-                        .size(52.dp)
-                ) {
-
-                    Image(
-                        painter = painterResource(id = R.drawable.ic_like),
-                        contentDescription = "like",
-                    )
-
-                }
             }
+        }
+    }
+}
+
+@Composable
+fun RejectAndLikeButtonsRow() {
+
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 18.dp, bottom = 20.dp),
+        horizontalArrangement = Arrangement.Center
+    ) {
+
+        IconButton(
+            onClick = { /*TODO*/ },
+            modifier = Modifier.size(52.dp)
+        ) {
+
+            Image(
+                painter = painterResource(id = R.drawable.ic_reject),
+                contentDescription = "reject"
+            )
+
+        }
+
+        IconButton(
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .padding(start = 48.dp)
+                .size(52.dp)
+        ) {
+
+            Image(
+                painter = painterResource(id = R.drawable.ic_like),
+                contentDescription = "like",
+            )
+
         }
     }
 }
