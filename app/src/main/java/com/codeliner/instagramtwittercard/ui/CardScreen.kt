@@ -120,11 +120,15 @@ fun ProfileInfo() {
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_info),
-                    contentDescription = "info",
-                    tint = Color.White
-                )
+                IconButton(
+                    onClick = { /*TODO*/ }
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_info),
+                        contentDescription = "info",
+                        tint = Color.White
+                    )
+                }
 
             }
         }
@@ -145,12 +149,10 @@ fun RejectAndLikeButtonsRow() {
             onClick = { /*TODO*/ },
             modifier = Modifier.size(52.dp)
         ) {
-
             Image(
                 painter = painterResource(id = R.drawable.ic_reject),
                 contentDescription = "reject"
             )
-
         }
 
         IconButton(
@@ -159,13 +161,12 @@ fun RejectAndLikeButtonsRow() {
                 .padding(start = 48.dp)
                 .size(52.dp)
         ) {
-
             Image(
                 painter = painterResource(id = R.drawable.ic_like),
                 contentDescription = "like",
             )
-
         }
+
     }
 }
 
