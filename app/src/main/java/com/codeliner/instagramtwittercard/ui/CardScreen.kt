@@ -22,36 +22,44 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.codeliner.instagramtwittercard.R
 
-@Preview(showBackground = true)
 @Composable
 fun CardScreen() {
 
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 20.dp, end = 20.dp, top = 171.dp, bottom = 82.dp)
-            .clip(RoundedCornerShape(25.dp))
+    Row(
+        modifier = Modifier.fillMaxSize(),
+        verticalAlignment = Alignment.CenterVertically
     ) {
 
-        Column() {
+        Card(
+            modifier = Modifier
+                .padding(start = 20.dp, end = 20.dp)
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(25.dp))
+        ) {
 
-            val gradientWhiteBlack = Brush.verticalGradient(
-                0f to Color.White, 0.536f to Color.White, 1f to Color.Black
-            )
-            Column(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(top = 14.dp, start = 14.dp, end = 14.dp)
-                    .clip(RoundedCornerShape(13.dp))
-                    .background(gradientWhiteBlack),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
+            Column() {
 
-                ProfileImage()
-                ProfileInfo()
+                val gradientWhiteBlack = Brush.verticalGradient(
+                    0f to Color.White, 0.536f to Color.White, 1f to Color.Black
+                )
+                Column(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(top = 14.dp, start = 14.dp, end = 14.dp)
+                        .clip(RoundedCornerShape(13.dp))
+                        .background(gradientWhiteBlack),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+
+                    ProfileImage()
+
+                    ProfileInfo()
+
+                }
+
+                RejectAndLikeButtonsRow()
+
             }
-
-            RejectAndLikeButtonsRow()
         }
     }
 }
@@ -158,6 +166,12 @@ fun RejectAndLikeButtonsRow() {
 
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CardScreenPreview() {
+    CardScreen()
 }
 
 /*
