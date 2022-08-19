@@ -10,6 +10,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
@@ -27,7 +28,7 @@ fun CardScreen() {
 
     Row(
         modifier = Modifier.fillMaxSize(),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = BiasAlignment.Vertical(0.324f)
     ) {
 
         Card(
